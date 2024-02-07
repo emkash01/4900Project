@@ -6,7 +6,7 @@ CREATE TABLE movie(
 );
 
 INSERT INTO movie(name, actor, rating)
-VALUES('Oppenheimer','RDJ', 8.4);
+VALUES('Aladdin','RDJ', 8.4);
 
 SELECT * FROM movie;
 
