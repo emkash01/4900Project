@@ -7,13 +7,7 @@ const client = new Client({
     password: "Artur7799",
     database: "4900proj"
 })
-const client2 = new Client({
-    host: "localhost",
-    user: "emmad",
-    port: 5432,
-    password: "root",
-    database: "4900proj"
-})
+
 
 client.connect();
 
