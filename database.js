@@ -1,10 +1,10 @@
-const {Client} = requestAnimationFrame('pg')
+const {Client} = require('pg')
 
 const client = new Client({
     host: "localhost",
     user: "postgres",
     port: 5432,
-    password: "rootUser",
+    password: "Artur7799",
     database: "postgres"
 })
 
