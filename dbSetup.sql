@@ -1,3 +1,4 @@
+DROP TABLE movie IF EXISTS movie
 CREATE TABLE movie(
 	id SERIAL PRIMARY KEY,
 	title VARCHAR(255),--colum named name and text based column
