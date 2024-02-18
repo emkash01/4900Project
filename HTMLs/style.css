@@ -1,7 +1,10 @@
+*,*::after,*::before{
+  box-sizing: border-box;
+}
 body {
 	background-color:#d9d2e9;
 }
-h1 {
+h1,h2,h3 {
   text-align: center;
   color: black;
 }
@@ -34,4 +37,83 @@ h1 {
   border-radius: 50%;
   cursor: pointer;
 }
-
+--root{
+  --slider-padding: 5rem;
+}
+.rowOne{
+  
+  display: flex;
+  justify-content: center;
+}
+.rowOneContent{
+  display: flex; /*makes images in one line*/
+  flex-grow: 1;
+  transform: translateX(0%);
+}
+.imgOne{
+  flex: 0 0 25%
+  max-width: 25%;
+  aspect-ratio: 16/9;
+  padding: .25rem;
+  border-radius: .5rem;
+}
+.imgTwo{
+  flex: 0 0 25%
+  max-width: 25%;
+  aspect-ratio: 16/9;
+  padding: .25rem;
+}
+.imgThree{
+  flex: 0 0 25%
+  max-width: 25%;
+  aspect-ratio: 16/9;
+  padding: .25rem;
+  border-radius: .5rem;
+}
+.imgFour{
+  flex: 0 0 25%
+  max-width: 25%;
+  aspect-ratio: 16/9;
+  padding: .25rem;
+  border-radius: .5rem;
+}
+.imgFive{
+  flex: 0 0 25%
+  max-width: 25%;
+  aspect-ratio: 16/9;
+  padding: .25rem;
+  border-radius: .5rem;
+}
+.goLeft{
+  border: none;
+  border-radius: 5rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  flex-grow: 0;
+  width: 5rem;
+  background-color: purple;
+  z-index: 10;
+  margin: .25rem 0;
+  cursor: pointer;
+  
+}
+.goLeft:hover{
+  background-color: hsl(298, 87%, 15%);
+}
+.rowOne:hover .goLeft::after{
+  content: \2039;
+}
+.rowOne:hover .goRight::after{
+  content: \203A;
+}
+.goRight{
+  flex-grow: 0;
+  width: 5rem;
+  background-color: purple;
+  z-index: 10;
+  margin: .25rem 0;
+  cursor: pointer;
+}
+.goRight:hover{
+  background-color: hsl(298, 87%, 15%);
+}
