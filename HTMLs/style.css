@@ -7,7 +7,10 @@ body {
 h1,h2,h3 {
   text-align: center;
   color: black;
-}
+} 
+/*.navbar{
+  position:fixed;
+}*/
 .navbar ul{
   list-style-type: none;
   background-color: purple;
@@ -42,11 +45,11 @@ h1,h2,h3 {
 }
 .rowOne{
   
-  display: flex;
   justify-content: center;
 }
 .rowOneContent{
-  display: flex; /*makes images in one line*/
+  display: flex; /*display: flex makes images in one line*/
+  justify-content: row;
   flex-grow: 1;
   transform: translateX(0%);
 }
@@ -117,3 +120,4 @@ h1,h2,h3 {
 .goRight:hover{
   background-color: hsl(298, 87%, 15%);
 }
+
