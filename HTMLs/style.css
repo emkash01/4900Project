@@ -1,16 +1,15 @@
-*,*::after,*::before{
-  box-sizing: border-box;
-}
 body {
 	background-color:#d9d2e9;
+  margin: 0px;
 }
 h1,h2,h3 {
   text-align: center;
   color: black;
+  
 } 
-/*.navbar{
-  position:fixed;
-}*/
+h2{
+  margin-top: 5%;
+}
 .navbar ul{
   list-style-type: none;
   background-color: purple;
@@ -18,6 +17,8 @@ h1,h2,h3 {
   margin: 0px;
   text-align: center;
   overflow: hidden;
+  width:100%;
+  position: fixed;
 }
 .navbar a{
   color: white;
@@ -25,99 +26,98 @@ h1,h2,h3 {
   padding: 15px;
   display: block; 
 }
-.navbar a:hover{
+a:hover{
   background-color: hsl(298, 87%, 15%);
 }
 .navbar li{
   float:left;
 }
+.search{
+  padding: 6px;
+  margin-top: 4px;
+  margin-right: 0px;
+  font-size: 17px;
+  border: none;
+  float: right;
+  border-radius: 0 150px 150px 0 ;
+}
+.searchBar{
+}
+.submitButton{
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 150px 150px 0 ;
+  background-color:white ;
+}
 .logo{
-  position: fixed;
   margin-left: 10px;
-  height: 50px;
+  margin-right: 10px;
+  margin-top: 4px;
   left: 0px;
-  width: 50px;
+  width: 40px;
   border-radius: 50%;
   cursor: pointer;
-}
---root{
-  --slider-padding: 5rem;
-}
-.rowOne{
-  
-  justify-content: center;
+  position: center;
 }
 .rowOneContent{
-  display: flex; /*display: flex makes images in one line*/
-  justify-content: row;
-  flex-grow: 1;
-  transform: translateX(0%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*width: 66%;*/
 }
-.imgOne{
-  flex: 0 0 25%
-  max-width: 25%;
-  aspect-ratio: 16/9;
-  padding: .25rem;
-  border-radius: .5rem;
-}
-.imgTwo{
-  flex: 0 0 25%
-  max-width: 25%;
-  aspect-ratio: 16/9;
-  padding: .25rem;
-}
-.imgThree{
-  flex: 0 0 25%
-  max-width: 25%;
-  aspect-ratio: 16/9;
-  padding: .25rem;
-  border-radius: .5rem;
-}
-.imgFour{
-  flex: 0 0 25%
-  max-width: 25%;
-  aspect-ratio: 16/9;
-  padding: .25rem;
-  border-radius: .5rem;
-}
-.imgFive{
-  flex: 0 0 25%
-  max-width: 25%;
-  aspect-ratio: 16/9;
-  padding: .25rem;
-  border-radius: .5rem;
-}
+
 .goLeft{
-  border: none;
-  border-radius: 5rem;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  flex-grow: 0;
-  width: 5rem;
+  border: 50%;
+  border-radius: 50%;
   background-color: purple;
-  z-index: 10;
-  margin: .25rem 0;
+  border: none;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
   cursor: pointer;
-  
-}
-.goLeft:hover{
-  background-color: hsl(298, 87%, 15%);
-}
-.rowOne:hover .goLeft::after{
-  content: \2039;
-}
-.rowOne:hover .goRight::after{
-  content: \203A;
 }
 .goRight{
-  flex-grow: 0;
-  width: 5rem;
+  border: 50%;
+  border-radius: 50%;
   background-color: purple;
-  z-index: 10;
-  margin: .25rem 0;
+  border: none;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
   cursor: pointer;
 }
-.goRight:hover{
-  background-color: hsl(298, 87%, 15%);
+.Image{
+  width: 200px;
+  height: auto;
 }
+.Image2{
+  width: 200px;
+  height: auto;
+}
+/*.imgOne{
+  width: 200px;
+}
+.imgTwo{
+  width:200px;
+}
+.imgThree{
+  width:200px;
+}
+.imgFour{
+  width:200px;
+}
+.imgFive{
+  width: 200px;
+}*/
 

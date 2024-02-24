@@ -9,49 +9,73 @@
     <!--link rel="icon" href="./favicon.ico" type="image/x-icon"-->
   </head>
   <body>
-    <main>
-        <h1>Movies</h1> 
-        <img src = "ProjLogo.png" class = "logo"> 
-    </main>
-    <nav class = "navbar">
-      <ul >
-        <li><a href = "./homepage.html">Movies</a></li>
-        <li><a href = "./shows.html">Shows</a></li>
-        <li><a href = "./Mylist.html">MyList</a></li>
-        <li><a href = "./MotW.html">Movie of the Week</a></li>
-        <li><a href = "./Rating.html">Rating</a></li>
-      </ul>
-    </nav>
-    <h2>Random Genre</h2>
+    <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+      
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+      
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("Image");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }  
+        x[slideIndex-1].style.display = "block";  
+      }
+      </script>
+      <h1>Movies</h1> 
+      <nav class = "navbar">
+        <ul >
+          <li><img src = "ProjLogo.png" class = "logo"> </li>
+          <li><a href = "./homepage.html">Movies</a></li>
+          <li><a href = "./shows.html">Shows</a></li>
+          <li><a href = "./Mylist.html">MyList</a></li>
+          <li><a href = "./MotW.html">Movie of the Week</a></li>
+          <li><a href = "./Rating.html">Rating</a></li>
+          <div class="search">
+              <input type="text" class = "searchBar" placeholder="Search..">
+              <button type="submit" class = "submitButton">🔍</button>
+          </div>
+        </ul>
+      </nav>
+      <h2>Random Genre</h2>
     <div class = "rowOne">
-      <button class = "goLeft"></div>
       <div class = "rowOneContent">
         <!--databasefilms for now place holder-->
-        <img src="/Movie_images/Oppenheimer_(film).jpg" class = "imgOne">
-        <img src="/Movie_images/Oppenheimer_(film).jpg" class = "imgTwo">
-        <img src="/Movie_images/Oppenheimer_(film).jpg" class = "imgThree">
-        <img src="/Movie_images/Oppenheimer_(film).jpg" class = "imgFour">
-        <img src="/Movie_images/Oppenheimer_(film).jpg" class = "imgFive">
+        <button class = "goLeft" onclick="plusDivs(-1)">&lsaquo;</button> 
+        <img src="/Movie_images/Oppenheimer_(film).jpg" class = "Image">
+        <img src="/Movie_images/CACivilWar.jpg" class = "Image">
+        <img src="/Movie_images/HTTYD3.jpg" class = "Image">
+        <img src="/Movie_images/Deadpool3.jpg" class = "Image">
+        <img src="/Movie_images/MadameWeb.jpg" class = "Image">
         <!--<img src="/Movie_images/Oppenheimer_(film).jpg">
         <img src="/Movie_images/Oppenheimer_(film).jpg">
         <img src="/Movie_images/Oppenheimer_(film).jpg">-->
+        <button class = "goRight" onclick="plusDivs(1)">&rsaquo;</button> 
       </div>
-      <button class = "goRight"></div>
     </div>
-    <div class = "rowTwo">
-      <h2>Random Genre</h2>
-      <div class = "rowTwoContent">
+    <h2>Random Genre</h2>
+    <div class = "rowOne">
+      <div class = "rowOneContent">
         <!--databasefilms for now place holder-->
+        <button class = "goLeft2" onclick="plusDivs2(-1)">&lsaquo;</button> 
+        <img src="/Movie_images/Oppenheimer_(film).jpg" class = "Image2">
+        <img src="/Movie_images/CACivilWar.jpg" class = "Image2">
+        <img src="/Movie_images/HTTYD3.jpg" class = "Image2">
+        <img src="/Movie_images/Deadpool3.jpg" class = "Image2">
+        <img src="/Movie_images/MadameWeb.jpg" class = "Image2">
+        <!--<img src="/Movie_images/Oppenheimer_(film).jpg">
         <img src="/Movie_images/Oppenheimer_(film).jpg">
+        <img src="/Movie_images/Oppenheimer_(film).jpg">-->
+        <button class = "goRight2" onclick="plusDivs2(1)">&rsaquo;</button> 
       </div>
     </div>
-    <div class = "rowThree">
-      <h2>Random Genre</h2>
-      <div class = "rowThreeContent">
-        <!--databasefilms for now place holder-->
-        <img src="/Movie_images/Oppenheimer_(film).jpg">
-      </div>
-    </div>
+    <h2>Random Genre</h2>
 	  <script src="pracitce.js"></script>
   </body>
 </html>
