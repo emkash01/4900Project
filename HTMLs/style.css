@@ -1,5 +1,11 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
 body {
 	background-color:#d9d2e9;
+  margin: 0px;
+}
+head{
   margin: 0px;
 }
 h1,h2,h3 {
@@ -7,14 +13,14 @@ h1,h2,h3 {
   color: black;
   
 } 
-h2{
-  margin-top: 5%;
+.navbar{
+  height: 40px
 }
 .navbar ul{
   list-style-type: none;
   background-color: purple;
   padding: 0px;
-  margin: 0px;
+  margin-top: 0px;
   text-align: center;
   overflow: hidden;
   width:100%;
@@ -25,10 +31,12 @@ h2{
   text-decoration: none;
   padding: 15px;
   display: block; 
+
 }
 a:hover{
   background-color: hsl(298, 87%, 15%);
 }
+
 .navbar li{
   float:left;
 }
@@ -66,7 +74,11 @@ a:hover{
   display: flex;
   justify-content: center;
   align-items: center;
+  object-fit: contain;
   /*width: 66%;*/
+}
+.rowOneContent:first-child{
+  margin-right: auto;
 }
 
 .goLeft{
