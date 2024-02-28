@@ -95,8 +95,13 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;  
-    transition: height .2s ease; /* does not increase in size from 440 to 520 px*/
+    overflow: hidden;   /*uncomment to see problem */
+    transition: scale(0);
+    transition: transform .5s ease, height .2s ease; /* does not increase in size from 440 to 520 px*/
+}
+
+.wrapper.active-popup{
+    transform: scale(1);
 }
 
 .wrapper.active{
