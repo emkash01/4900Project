@@ -25,6 +25,7 @@
         for (i = 0; i < x.length; i++) {
           x[i].style.display = "none";  
         }  
+        x[slideIndex-2].style.display = "block"; 
         x[slideIndex-1].style.display = "block";  
       }
       </script>
@@ -47,7 +48,7 @@
     <div class = "rowOne">
       <div class = "rowOneContent">
         <!--databasefilms for now place holder-->
-        <button class = "goLeft" onclick="plusDivs(-1)">&lsaquo;</button> 
+        <button class = "goLeft" onclick="plusDivs(-1)"><!--&lsaquo;--> <ion-icon name="caret-back-outline"></ion-icon></button> 
         <img src="/Movie_images/Oppenheimer_(film).jpg" class = "Image">
         <img src="/Movie_images/CACivilWar.jpg" class = "Image">
         <img src="/Movie_images/HTTYD3.jpg" class = "Image">
@@ -77,6 +78,8 @@
     </div>
     <h2>Random Genre</h2>
 	  <script src="pracitce.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
 

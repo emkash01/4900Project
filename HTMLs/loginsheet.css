@@ -95,7 +95,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;   /*uncomment to see problem */
+    /*overflow: hidden;   /*uncomment to see problem */
     transition: scale(0);
     transition: transform .5s ease, height .2s ease; /* does not increase in size from 440 to 520 px*/
 }
