@@ -1,6 +1,7 @@
 DROP TABLE movie IF EXISTS movie
 CREATE TABLE movie(
 	id SERIAL PRIMARY KEY,
+	pic VARCHAR(100); -- temporarily varchar
 	title VARCHAR(255),--colum named name and text based column
 	actor VARCHAR(100),
 	synop VARCHAR(1000),

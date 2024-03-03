@@ -13,7 +13,6 @@ body {
     background: #d9d2e9 no-repeat;  /*CHANGE purple to: url(imagename.jpg) and keep no-repeat to chagne to a pic*/
     background-size: cover; /*just in case */
     background-position: center; /* just in case */
-
 }
 
 header{
