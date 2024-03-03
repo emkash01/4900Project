@@ -81,7 +81,7 @@ a:hover{
   margin-right: auto;
 }
 
-.goLeft{
+.goLeft,.goLeft2{
   border: 50%;
   border-radius: 50%;
   background-color: purple;
@@ -102,7 +102,7 @@ a:hover{
 
 
 
-.goRight{
+.goRight,.goRight2{
   border: 50%;
   border-radius: 50%;
   background-color: purple;
