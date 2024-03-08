@@ -11,6 +11,18 @@ CREATE TABLE movie(
 	duration VARCHAR(100000),
 	trailer VARCHAR(100000)
 );
+CREATE TABLE shows(
+    id SERIAL PRIMARY KEY,
+    pic VARCHAR(100); -- temporarily varchar
+    title VARCHAR(255),--colum named name and text based column
+    actor VARCHAR(100), -- shouldnt this be array as well
+    synop VARCHAR(1000),
+    rating DOUBLE PRECISION,
+    genra VARCHAR[](100),
+    sites VARCHAR[](100),
+    duration VARCHAR(100),
+    trailer VARCHAR(100)
+);
 
 INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
 VALUES('https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FOppenheimer_%2528film%2529&psig=AOvVaw3UDE3CRtVxmmvgYsUIgV6z&ust=1709854003663000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCICSxdXk4IQDFQAAAAAdAAAAABAE','Oppenheimer','{"RDJ"}','banger movie', 8.4, '{"Historical"}', '{"hbo"}', '3 hours','https://www.youtube.com/watch?v=bK6ldnjE3Y0&ab_channel=UniversalPictures');
@@ -40,4 +52,25 @@ INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trail
 VALUES('https://www.imdb.com/title/tt8760708/mediaviewer/rm4216980993/?ref_=tt_ov_i','M3gan', '{"Allison Williams","Violet McGraw","Ronny Chieng"}','A robotics engineer at a toy company builds a life-like doll that begins to take on a life of its own.',6.4,'{"Horror","Sci-Fi","Thriller"}','{"Amazon"}','1h 42m','https://www.youtube.com/watch?v=BRb4U99OU80&pp=ygUSbWVnYW4gdHJhaWxlciAyMDI0');
 INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
 VALUES('https://www.imdb.com/title/tt5535276/mediaviewer/rm3842791169/?ref_=tt_ov_i','Maestro', '{"Carey Mulligan","Bradley Cooper","Matt Bomer"}','This love story chronicles the lifelong relationship of conductor-composer Leonard Bernstein and actress Felicia Montealegre Cohn Bernstein.',6.6,'{"Biography","Drama","History"}','{"Netflix"}', '2h 9m', 'https://www.youtube.com/watch?v=gJP2QblqLA0&pp=ygUUbWFlc3RybyB0cmFpbGVyIDIwMjQ%3D');
+INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
+VALUES();
+
+INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
+VALUES('Dragon Ball Z','Sean Schemmel','goated anime', 9.2, 'Action', 'CrunchyRoll', '117 hours','https://www.youtube.com/watch?v=Byo4rgMHUM4');
+INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
+VALUES('Chowder','Nicky Jones','funny', 8.0, 'Comedy', 'Cartoon network', '19 hours','https://www.youtube.com/watch?v=Cr0b7wzCH0E');
+INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
+VALUES('Naruto','Maile Flanagan','very cool show', 7.3, 'Action', 'CrunchyRoll', '84 hours','https://www.youtube.com/watch?v=-G9BqkgZXRA');
+INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
+VALUES('The Marvelous Misadventures of Flapjack','Thurop Van Orman','very strange show', 8.2, 'Comedy', 'Hulu', '21 hours','https://www.youtube.com/watch?v=htxbg6XK8wk');
+INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
+VALUES('One Piece','Colleen Clinkenbeard','very long anime', 7.8, 'Adventure', 'Netflix', '437 hours','https://www.youtube.com/watch?v=MCb13lbVGE0');
+INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
+VALUES('Teen Titans','Scott menville','really cool', 9.1, 'Action', 'CrunchyRoll', '8 hours','https://www.youtube.com/watch?v=yL75mtNZ6PA');
+INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
+VALUES('Fate/Zero','Matthew Mercer','goated anime', 9.4, 'Psychological Thriller', 'CrunchyRoll', '10 hours','https://www.youtube.com/watch?v=n-7PFiut1HI');
 SELECT * FROM movie;
+
+
+
+
