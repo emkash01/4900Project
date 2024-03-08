@@ -13,15 +13,15 @@ CREATE TABLE movie(
 );
 CREATE TABLE shows(
     id SERIAL PRIMARY KEY,
-    pic VARCHAR(100); -- temporarily varchar
+    pic VARCHAR(100000); -- temporarily varchar
     title VARCHAR(255),--colum named name and text based column
-    actor VARCHAR(100), -- shouldnt this be array as well
+    actor VARCHAR[], -- shouldnt this be array as well
     synop VARCHAR(1000),
     rating DOUBLE PRECISION,
-    genra VARCHAR[](100),
-    sites VARCHAR[](100),
-    duration VARCHAR(100),
-    trailer VARCHAR(100)
+    genra VARCHAR[],
+    sites VARCHAR[],
+    duration VARCHAR(100000),
+    trailer VARCHAR(100000)
 );
 
 INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
@@ -69,7 +69,9 @@ INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
 VALUES('Teen Titans','Scott menville','really cool', 9.1, 'Action', 'CrunchyRoll', '8 hours','https://www.youtube.com/watch?v=yL75mtNZ6PA');
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
 VALUES('Fate/Zero','Matthew Mercer','goated anime', 9.4, 'Psychological Thriller', 'CrunchyRoll', '10 hours','https://www.youtube.com/watch?v=n-7PFiut1HI');
-SELECT * FROM movie;
+
+SELECT * FROM shows;
+
 
 
 
