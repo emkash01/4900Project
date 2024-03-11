@@ -1,15 +1,10 @@
-var express = requre('express');
-var router = express.router();
-var database = require('../database');
- 
-router.get("/", function(request, response, next){
-    var query = "SELECT * FROM movie";
-    datatbase.query(query, function(error, data){
-        if(error){
-            throw error;
-        }
-        else{
-            response.render('practice', {title: 'practice output', action:'list', sampleData:data});
-        }
-    });
+const express = require("express");
+const movieRoutes = require('./movie/routes');
+const app = express();
+const port = 3000;
+
+app.get("/",(req,res) =>{
+    res.send("helloworld");
 });
+app.use('/api/v1/movies', movieRoutes);
+app.listen(port, ()=> console.log(`app listening on port ${port}`));

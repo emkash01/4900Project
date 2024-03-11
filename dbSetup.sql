@@ -13,7 +13,7 @@ CREATE TABLE movie(
 );
 CREATE TABLE shows(
     id SERIAL PRIMARY KEY,
-    pic VARCHAR(100000); -- temporarily varchar
+    pic VARCHAR(100000), -- temporarily varchar
     title VARCHAR(255),--colum named name and text based column
     actor VARCHAR[], -- shouldnt this be array as well
     synop VARCHAR(1000),
