@@ -13,15 +13,15 @@ CREATE TABLE movie(
 );
 CREATE TABLE shows(
     id SERIAL PRIMARY KEY,
-    pic VARCHAR(100000), -- temporarily varchar
+    pic VARCHAR(100); -- temporarily varchar
     title VARCHAR(255),--colum named name and text based column
-    actor VARCHAR[], -- shouldnt this be array as well
+    actor VARCHAR(100), -- shouldnt this be array as well
     synop VARCHAR(1000),
     rating DOUBLE PRECISION,
-    genra VARCHAR[],
-    sites VARCHAR[],
-    duration VARCHAR(100000),
-    trailer VARCHAR(100000)
+    genra VARCHAR[](100),
+    sites VARCHAR[](100),
+    duration VARCHAR(100),
+    trailer VARCHAR(100)
 );
 
 INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
@@ -56,23 +56,21 @@ INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trail
 VALUES();
 
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES('Dragon Ball Z','Sean Schemmel','goated anime', 9.2, 'Action', 'CrunchyRoll', '117 hours','https://www.youtube.com/watch?v=Byo4rgMHUM4');
+VALUES('https://www.imdb.com/title/tt0214341/mediaviewer/rm1132797952/?ref_=tt_ov_i','Dragon Ball Z','{Sean Schemmel, Chris Sabat, Monica Rial}','Dragon Ball Z follows the adventures of Goku and his friends as they defend Earth against powerful foes and intergalactic threats, with epic battles, transformations, and the pursuit of the magical Dragon Balls to save the world.', 9.2, '{Action, Adventure, Fantasy}', '{CrunchyRoll, Hulu, Amazon}', '117 hours','https://www.youtube.com/watch?v=Byo4rgMHUM4');
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES('Chowder','Nicky Jones','funny', 8.0, 'Comedy', 'Cartoon network', '19 hours','https://www.youtube.com/watch?v=Cr0b7wzCH0E');
+VALUES('https://www.imdb.com/title/tt1140100/mediaviewer/rm215754752/?ref_=tt_ov_i'. 'Chowder', '{Nicky Jones, Dwight Schultz, John DiMaggio}', 'In  Marzipan City, excitable young food-loving Chowder is the apprentice of Mung Daal, a very old chef who runs a catering company with his wife Truffles and assistant Shnitzel.', 8.0, '{Comedy, Adventure, Family}', '{Cartoon Network, Hulu, Amazon}', '19 hours','https://www.youtube.com/watch?v=Cr0b7wzCH0E');
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES('Naruto','Maile Flanagan','very cool show', 7.3, 'Action', 'CrunchyRoll', '84 hours','https://www.youtube.com/watch?v=-G9BqkgZXRA');
+VALUES('https://www.imdb.com/title/tt0409591/mediaviewer/rm651630848/?ref_=tt_ov_i', 'Naruto', '{Maile Flanagan, Kate Higgins, Yuri Lowenthal}', 'Naruto Uzumaki', 'a mischievous adolescent ninja, struggles as he searches for recognition and dreams of becoming the Hokage, which is the leader of the village, and strongest ninja', 7.3, '{Action, Adventure, Comedy}', '{Hulu, Netflix ,CrunchyRoll}', '84 hours','https://www.youtube.com/watch?v=-G9BqkgZXRA');
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES('The Marvelous Misadventures of Flapjack','Thurop Van Orman','very strange show', 8.2, 'Comedy', 'Hulu', '21 hours','https://www.youtube.com/watch?v=htxbg6XK8wk');
+VALUES('https://www.imdb.com/title/tt1178180/mediaviewer/rm1348214273/?ref_=tt_ov_i', 'The Marvelous Misadventures of Flapjack','{Thurop Van Orman, Brian Doyle-Murray, Steve Little}','The comical seafaring adventures of a young, enthusiastic boy, his pirate captain mentor, and the talking whale that raised him from birth.', 8.2, '{Comedy, Adventure, Horror}', '{Hulu, Amazon}', '21 hours','https://www.youtube.com/watch?v=htxbg6XK8wk');
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES('One Piece','Colleen Clinkenbeard','very long anime', 7.8, 'Adventure', 'Netflix', '437 hours','https://www.youtube.com/watch?v=MCb13lbVGE0');
+VALUES('https://www.imdb.com/title/tt0388629/mediaviewer/rm63129601/?ref_=tt_ov_i', 'One Piece','{Colleen Clinkenbeard, Sonny Strait, Christopher Sabat}','Monkey D. Luffy sets off on an adventure with his pirate crew in hopes of finding the greatest treasure ever, known as the "One Piece."', 7.8, '{Adventure, Action, Comedy}', '{Hulu, Crunchyroll, Netflix}', '437 hours','https://www.youtube.com/watch?v=MCb13lbVGE0');
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES('Teen Titans','Scott menville','really cool', 9.1, 'Action', 'CrunchyRoll', '8 hours','https://www.youtube.com/watch?v=yL75mtNZ6PA');
+VALUES('https://www.imdb.com/title/tt0343314/mediaviewer/rm2117535233/?ref_=tt_ov_i', 'Teen Titans','{Scott Menville, Hynden Walch, Greg Cipes}','A team of five teenaged superheroes save the world from many villains around their city while experiencing things normal teens face today.', 9.1, '{Action, Adventure, Sci-Fi}', '{Amazon, HBO Max}', '8 hours','https://www.youtube.com/watch?v=yL75mtNZ6PA');
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES('Fate/Zero','Matthew Mercer','goated anime', 9.4, 'Psychological Thriller', 'CrunchyRoll', '10 hours','https://www.youtube.com/watch?v=n-7PFiut1HI');
-
-SELECT * FROM shows;
-
-
-
-
-
+VALUES('https://www.imdb.com/title/tt2051178/mediaviewer/rm2482316289/?ref_=tt_ov_i', 'Fate/Zero','{Matthew Mercer, Crispin Freeman, Kari Wahlgren}','Seven chosen mages and their summoned heroic spirits fight against each other to try and win the Holy Grail: a magical device that can grant any wish.', 9.4, '{Action, Fantasy, Thriller}', '{CrunchyRoll, Funimation, Hulu}', '10 hours','https://www.youtube.com/watch?v=n-7PFiut1HI');
+INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
+VALUES('https://www.imdb.com/title/tt0760437/mediaviewer/rm2168394241/?ref_=tt_ov_i', 'Ben 10','{Tara Strong, Meagan Moore, Paul Eiding}','The story of Ben Tennyson, a typical kid who becomes very atypical after he discovers the Omnitrix, a mysterious alien device with the power to transform the wearer into ten different alien species.', 7.5, '{Action, Sci-Fi, Adventure}', '{Amazon}', '10 hours','https://www.youtube.com/watch?v=n-7PFiut1HI');
+INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
+VALUES('https://www.imdb.com/title/tt3225270/mediaviewer/rm2196038912/?ref_=tt_ov_i', 'Noragami','{Jason Liebrecht, Bryn Apprill, Micah Solusod}','A minor god seeking to gain widespread worship teams up with a human girl he saved to gain fame, recognition and at least one shrine dedicated to him.', 7.5, '{Action, Fantasy, Comedy}', '{Crunchyroll, Funimation, Hulu}', '10 hours','https://www.youtube.com/watch?v=n-7PFiut1HI');
+VALUES();
