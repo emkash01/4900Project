@@ -1,52 +1,73 @@
+<?php
+   
+    ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PHP PostgreSQL Example</title>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    
-    <form method = "post">
-        <label> Search </LABEL>
-        <input type = "text" name = "search">
-        <input type = "submit" name = "submit">
-     
-    </form>
-
-</body>
-</html>
-
-<?php
-$con = new PDO("postgresql: host=localhost;dbname=dbSetup", 'root', ''); //dont know how to do this (Look at line below)
-//php > pg_connect("host=localhost dbname=edb user=enterprisedb password=postgres");  is a copy paste of when I attempted to connect via pgsql instead of mysql but it didnt work when modified to our code
-
-
-if(isset($_post["submit"])){
-    $str = $_POST["search"];
-    $sth = $con->prepare("SELECT * FROM 'search' WHERE title = '$str'");
-    
-    $sth -> setFetchMode(PDO:: FETCH_OBJ);
-    $sth -> execute();
-
-    if($row = $stg ->fetch()){
-        ?>
-        <br> <br> <br>
-        <table> 
-            <tr> 
-                <th> Name </th> 
-                <th> DEscription </th>
-            </tr>
-            <tr>
-                <td> <?php echo $row -> Name; ?> </td>
-                <td> <?php echo $row -> DEscription; ?> </td>
-    </tr>
-        </table>
+    <nav class = "navbar">
+        <ul >
+          <li><img src = "ProjLogo.png" class = "logo"> </li>
+          <li><a href = "./homepage.html">Movies</a></li>
+          <li><a href = "./shows.html">Shows</a></li>
+          <li><a href = "./Mylist.html">MyList</a></li>
+          <li><a href = "./MotW.html">Movie of the Week</a></li>
+          <li><a href = "./Rating.html">Rating</a></li>
+          <div class="search">
+              <input type="text" class = "searchBar" placeholder="Search.."name="key">
+              <button type="submit" class = "submitButton" name="submit">🔍</button>
+          </div>
+        </ul>
+      </nav>
+    <h1>User List</h1>
+    <div class="container">
         <?php
+         // PostgreSQL connection parameters
+    $host = "localhost";
+    $port = "5432";
+    $dbname = "4900proj";
+    $user = "postgres";
+    $password = "Artur7799";
+
+    // Connect to PostgreSQL
+    //$db = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
+    //$db = pg_connect("host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
+    // Query to select all users
+    function testdb_connect ($host, $port,$dbname, $user, $password){
+        $db = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
+        return $db;
+    }
+    
+    try {
+        $db = testdb_connect ($host, $port,$dbname, $user, $password);
+        echo 'Connected to database';
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+    if(isset($_POST['key'])){
+        $key = $_POST['key'];
+        $query = $db->query("SELECT * FROM movie WHERE title LIKE :keyword OR actor LIKE :keyword");
+        $query->bindValue(':keyword','%'.$key.'%', PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetchAll();
+        $rows = $query->rowCount();
+    }
+    
+    while ($rows != 0) {
+        $image = $row['pic'];
+        $imageData = base64_decode(file_get_contents($image));
+        echo "<tr>
+                <td>{$row['id']}</td>
+                <td>{$image}</td>
+                <td>{$row['title']}</td>
+            </tr>";
     }
 
-        else{
-            echo "Title Does not Exist"
-        }
-}
-?>
+    echo "</table>";
+        ?>
+    </div>
+</body>
+</html>
