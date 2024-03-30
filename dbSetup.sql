@@ -1,7 +1,8 @@
 DROP TABLE movie;
+Drop Table shows;
 CREATE TABLE movie(
 	id SERIAL PRIMARY KEY,
-	pic VARCHAR(100000), -- temporarily varchar
+	pic BYTEA, -- temporarily varchar
 	title VARCHAR(255),--colum named name and text based column
 	actor VARCHAR[],
 	synop VARCHAR(100000),
@@ -13,19 +14,19 @@ CREATE TABLE movie(
 );
 CREATE TABLE shows(
     id SERIAL PRIMARY KEY,
-    pic VARCHAR(100); -- temporarily varchar
+    pic VARCHAR(100), -- temporarily varchar
     title VARCHAR(255),--colum named name and text based column
     actor VARCHAR(100), -- shouldnt this be array as well
     synop VARCHAR(1000),
     rating DOUBLE PRECISION,
-    genra VARCHAR[](100),
-    sites VARCHAR[](100),
+    genra VARCHAR[],
+    sites VARCHAR[],
     duration VARCHAR(100),
     trailer VARCHAR(100)
 );
 
 INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES('https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FOppenheimer_%2528film%2529&psig=AOvVaw3UDE3CRtVxmmvgYsUIgV6z&ust=1709854003663000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCICSxdXk4IQDFQAAAAAdAAAAABAE','Oppenheimer','{"RDJ"}','banger movie', 8.4, '{"Historical"}', '{"hbo"}', '3 hours','https://www.youtube.com/watch?v=bK6ldnjE3Y0&ab_channel=UniversalPictures');
+VALUES(C:\Users\Artur.S\OneDrive\Documents\GitHub\4900Project\Movie_images\Oppenheimer_(film).jpg,'Oppenheimer','{"RDJ"}','banger movie', 8.4, '{"Historical"}', '{"hbo"}', '3 hours','https://www.youtube.com/watch?v=bK6ldnjE3Y0&ab_channel=UniversalPictures');
 INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
 VALUES('https://www.google.com/url?sa=i&url=https%3A%2F%2Fvariety.com%2Fgallery%2Fbarbie-movie-posters-cast%2F&psig=AOvVaw3pIPuVqddXw7mjWBePlafP&ust=1709855086252000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCLjF39no4IQDFQAAAAAdAAAAABAS','Barbie','{"Margor Robbie", "Ryan Gosling"}', 'barbie but live action',6.9,'{"Adventure", "Comedy", "Fantasy"}','{"Max","Amazon"}','1h 54m','https://www.youtube.com/watch?v=E6sHWQcCUsQ&pp=ygUOYmFyYmllIHRyYWlsZXI%3D');
 INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
@@ -56,19 +57,19 @@ INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trail
 VALUES('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ebay.com%2Fitm%2F225859872103&psig=AOvVaw0DE6VktTEE3oT88WkSH0jQ&ust=1710641055294000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCOD94NTY94QDFQAAAAAdAAAAABAH','Napoleon','{"Joaquin Phoenix","Vanessa kirby","Tahar Rahim"}','An epic that details the chequered rise and fall of French Emperor Napoleon Bonaparte and his relentless journey to power through the prism of his addictive, volatile relationship with his wife, Josephine.',6.4,'{"Action","Adventure","Biography"}','{"Apple Tv","Amazon"}','2h 38m','https://www.youtube.com/watch?v=OAZWXUkrjPc&pp=ygUQbmFwb2xlYW4gdHJhaWxlcg%3D%3D');
 INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
 VALUES('https://www.google.com/imgres?imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BNDM4NTk0NjktZDJhMi00MmFmLTliMzEtN2RkZDY2OTNiMDgzXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg&tbnid=oMAn1DmQ_8NARM&vet=12ahUKEwja9Kj52feEAxX1K2IAHdPLDYYQMygAegQIARBQ..i&imgrefurl=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt6166392%2F&docid=smV4_mnwASSjTM&w=1638&h=2048&q=2023%20wonka&ved=2ahUKEwja9Kj52feEAxX1K2IAHdPLDYYQMygAegQIARBQ','Wonka','{"Timothee Chalamet","Gustave Die","Murray McArthur"}','With dreams of opening a shop in a city renowned for its chocolate, a young and poor Willy Wonka discovers that the industry is run by a cartel of greedy chocolatiers.',7.1,'{"Adventure","Comedy","Family"}','{"Max, Amazon"}','1h 56m','https://www.youtube.com/watch?v=otNh9bTjXWg&pp=ygUNd29ua2EgdHJhaWxlcg%3D%3D');
+--INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
+--VALUES('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt9663764%2F&psig=AOvVaw2UFPcRtvd-wbS5IXEfKj0E&ust=1710641866430000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCOC8qNfb94QDFQAAAAAdAAAAABAR','Aquaman and the Lost Kingdom','{"Jason Momoa","Patrick Wilson","Yahya Abdul-Mateen"}','Black Manta seeks revenge on Aquaman for his father''s death. Wielding the Black Trident''s power, he becomes a formidable foe. To defend Atlantis, Aquaman forges an alliance with his imprisoned brother. They must protect the kingdom.',5.6,'{"Action","Adventure","Fantasy"}','{"Max","Amazon"}','2h 4m','Black Manta seeks revenge on Aquaman for his father's death. Wielding the Black Trident's power, he becomes a formidable foe. To defend Atlantis, Aquaman forges an alliance with his imprisoned brother. They must protect the kingdom.')
 INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt9663764%2F&psig=AOvVaw2UFPcRtvd-wbS5IXEfKj0E&ust=1710641866430000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCOC8qNfb94QDFQAAAAAdAAAAABAR','Aquaman and the Lost Kingdom','{"Jason Momoa","Patrick Wilson","Yahya Abdul-Mateen"}','Black Manta seeks revenge on Aquaman for his father''s death. Wielding the Black Trident''s power, he becomes a formidable foe. To defend Atlantis, Aquaman forges an alliance with his imprisoned brother. They must protect the kingdom.',5.6,'{"Action","Adventure","Fantasy"}','{"Max","Amazon"}','2h 4m','Black Manta seeks revenge on Aquaman for his father's death. Wielding the Black Trident's power, he becomes a formidable foe. To defend Atlantis, Aquaman forges an alliance with his imprisoned brother. They must protect the kingdom.')
-INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES('https://www.imdb.com/title/tt5971474/mediaviewer/rm1618294017/?ref_=tt_ov_i','The Little Mermaid','{"Halle Bailey","Melissa McCarthy","Jonah Hauer-King"}','A young mermaid makes a deal with a sea witch to trade her beautiful voice for human legs so she can discover the world above water and impress a prince.',7.2,'{"Adventure","Family","Fantasy"}','{"Amazon"}','2h 15m','https://www.youtube.com/watch?v=kpGo2_d3oYE&pp=ygUadGhlIGxpdHRlIG1lcm1haWQnIHRyYWlsZXI%3D')
-INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES()
-INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES()
+VALUES('https://www.imdb.com/title/tt5971474/mediaviewer/rm1618294017/?ref_=tt_ov_i','The Little Mermaid','{"Halle Bailey","Melissa McCarthy","Jonah Hauer-King"}','A young mermaid makes a deal with a sea witch to trade her beautiful voice for human legs so she can discover the world above water and impress a prince.',7.2,'{"Adventure","Family","Fantasy"}','{"Amazon"}','2h 15m','https://www.youtube.com/watch?v=kpGo2_d3oYE&pp=ygUadGhlIGxpdHRlIG1lcm1haWQnIHRyYWlsZXI%3D');
+--INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
+--VALUES()
+--INSERT INTO movie(pic,title, actor, synop, rating, genra, sites, duration, trailer)
+--VALUES()
 
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
 VALUES('https://www.imdb.com/title/tt0214341/mediaviewer/rm1132797952/?ref_=tt_ov_i','Dragon Ball Z','{Sean Schemmel, Chris Sabat, Monica Rial}','Dragon Ball Z follows the adventures of Goku and his friends as they defend Earth against powerful foes and intergalactic threats, with epic battles, transformations, and the pursuit of the magical Dragon Balls to save the world.', 9.2, '{Action, Adventure, Fantasy}', '{CrunchyRoll, Hulu, Amazon}', '117 hours','https://www.youtube.com/watch?v=Byo4rgMHUM4');
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
-VALUES('https://www.imdb.com/title/tt1140100/mediaviewer/rm215754752/?ref_=tt_ov_i'. 'Chowder', '{Nicky Jones, Dwight Schultz, John DiMaggio}', 'In  Marzipan City, excitable young food-loving Chowder is the apprentice of Mung Daal, a very old chef who runs a catering company with his wife Truffles and assistant Shnitzel.', 8.0, '{Comedy, Adventure, Family}', '{Cartoon Network, Hulu, Amazon}', '19 hours','https://www.youtube.com/watch?v=Cr0b7wzCH0E');
+VALUES('https://www.imdb.com/title/tt1140100/mediaviewer/rm215754752/?ref_=tt_ov_i', 'Chowder', '{Nicky Jones, Dwight Schultz, John DiMaggio}', 'In  Marzipan City, excitable young food-loving Chowder is the apprentice of Mung Daal, a very old chef who runs a catering company with his wife Truffles and assistant Shnitzel.', 8.0, '{Comedy, Adventure, Family}', '{Cartoon Network, Hulu, Amazon}', '19 hours','https://www.youtube.com/watch?v=Cr0b7wzCH0E');
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
 VALUES('https://www.imdb.com/title/tt0409591/mediaviewer/rm651630848/?ref_=tt_ov_i', 'Naruto', '{Maile Flanagan, Kate Higgins, Yuri Lowenthal}', 'Naruto Uzumaki', 'a mischievous adolescent ninja, struggles as he searches for recognition and dreams of becoming the Hokage, which is the leader of the village, and strongest ninja', 7.3, '{Action, Adventure, Comedy}', '{Hulu, Netflix ,CrunchyRoll}', '84 hours','https://www.youtube.com/watch?v=-G9BqkgZXRA');
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
@@ -83,4 +84,4 @@ INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
 VALUES('https://www.imdb.com/title/tt0760437/mediaviewer/rm2168394241/?ref_=tt_ov_i', 'Ben 10','{Tara Strong, Meagan Moore, Paul Eiding}','The story of Ben Tennyson, a typical kid who becomes very atypical after he discovers the Omnitrix, a mysterious alien device with the power to transform the wearer into ten different alien species.', 7.5, '{Action, Sci-Fi, Adventure}', '{Amazon}', '10 hours','https://www.youtube.com/watch?v=n-7PFiut1HI');
 INSERT INTO shows(title, actor, synop, rating, genra, sites, duration, trailer)
 VALUES('https://www.imdb.com/title/tt3225270/mediaviewer/rm2196038912/?ref_=tt_ov_i', 'Noragami','{Jason Liebrecht, Bryn Apprill, Micah Solusod}','A minor god seeking to gain widespread worship teams up with a human girl he saved to gain fame, recognition and at least one shrine dedicated to him.', 7.5, '{Action, Fantasy, Comedy}', '{Crunchyroll, Funimation, Hulu}', '10 hours','https://www.youtube.com/watch?v=n-7PFiut1HI');
-VALUES();
+--VALUES();
