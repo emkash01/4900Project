@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AE's Movie Connoisseur</title>
+    <title>TrailerFlix Movie of the week</title>
     <link rel="stylesheet" href="./style.css">
     <!--link rel="icon" href="./favicon.ico" type="image/x-icon"-->
   </head>
   <body>
-    <main>
-        <h1>Movie of the Week</h1> 
-    </main>
+     
     <nav class = "navbar">
       <ul>
         <li><img src = "ProjLogo.png" class = "logo"> </li>
@@ -26,6 +24,18 @@
         </div>
       </ul>
     </nav>
-	  <script src="pracitce.js"></script>
-  </body>
+    <main>
+      <div id = "trailer-container">
+        <h2>Movie of the Week</h2>
+        <iframe id = "trailer" width = "560" height = "315" frameborder = "0" allowfullscreen></iframe>
+    </div>
+      </main>
+
+      <script src="MotW.js"></script>
+      <script src="server.js"></script>
+      <script src="movies.js"></script>
+    </body>
 </html>
+
+//use the javascript version of math.random to choose the movie of the week. each entry in db has a unique var to them (like an id) and we use that as a means to
+// choosing the movie 
