@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
 
 function fetchRandomTrailer() {
     fetch('/trailer') // URL TO BACKEND ROUTE
-    .then(response => response.json())
+    .then(response => movies.json())
     .then(data => {
         // Display the trailer on the webpage
         document.getElementById('trailer').src = data.trailer_url;
