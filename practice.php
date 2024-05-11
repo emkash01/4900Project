@@ -12,15 +12,15 @@
           <li><a href = "./shows.html">Shows</a></li>
           <li><a href = "./Mylist.html">MyList</a></li>
           <li><a href = "./MotW.html">Movie of the Week</a></li>
-          <li><a href = "./Rating.html">Rating</a></li>
-          <form action="practice.php">
+          <li><a href = "./Rating.html">Rating</a></li> 
           <div class="search">
-              <input type="text" class = "searchBar" placeholder="Search.."name="key">
+            <form action="practice.php" method ="post">
+              <input type="text" class = "searchBar" placeholder="Search.."name="search">
               <button type="submit" class = "submitButton" name="submit">🔍</button>
-          </di>
-          </form>      
+            </form>  
+          </di>    
         </ul>
-      </nav>
+    </nav>
     <h1>User List</h1>
     <div class="container">
     <?php
@@ -46,17 +46,39 @@
     //
     //$row = $query->fetch()
     if (isset($_POST['submit'])){
-        $search = $_POST['key'];
-        $query = $db->prepare("SELECT * FROM movie WHERE title = :title OR actor = :actor");
-        //$query = $db->query("SELECT * FROM movie WHERE title = $search ");
-        $query->execute(['title'=> $search, 'actor'=> $search]);
+        $search = $_POST['search'];
+        //$query = $db->prepare("SELECT * FROM movie WHERE title LIKE :keyword OR actor LIKE :keyword");
+        //$query->bindValue(':keyword','%'.$search.'%', PDO::PARAM_STR);
+        //$query = $db->prepare("SELECT * FROM movie WHERE title = :title OR actor = :actor");
+        $query = $db->prepare("SELECT * FROM movie WHERE title = '%$search%'");
+        //$query->execute(['title'=> $search, 'actor'=> $search]);
+        //$query->execute(['title'=> $search]);
         //$query->bindParam(':title',$search,PDO::PARAM_STR);
-        //$query->execute();
-        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-            echo 'Movie: ' . $row['title'] . ', Name: ' . $row['actor'] . "<br>\n";
-            //echo 'Movie: '. $row['title'];
+        $query->execute();
+        $result = $query->fetchAll();
+        $rows = $query->rowCount();
+        //$query->fetch(PDO::FETCH_ASSOC)
+        if($query->fetch(PDO::FETCH_ASSOC)){
+            while($row = $query->fetch(PDO::FETCH_ASSOC)){
+                echo $row['title'];
+            }
+            // foreach($result as $r){
+            //     echo 'Movie: ' + $r['title'] + ', Name: ' + $r['actor'] . "<br>\n";
+            // }
+        }else{
+            echo 'no result';
         }
+        // while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+        //     //echo 'Movie: ' + $row['title'] + ', Name: ' + $row['actor'] . "<br>\n";
+        //     //echo 'Movie: '. $row['title'];
+        //     echo "<tr>
+        //         <td>{$row['id']}</td>
+        //         <td>{$row['pic']}</td>
+        //         <td>{$row['title']}</td>
+        //     </tr>";
+        // }
     }
+    $db = null;
     ?>
     </div>
 </body>
