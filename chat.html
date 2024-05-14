@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat</title>
-    <link rel="stylesheet" href="./chat.css" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="assets/css/chat.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     
   </head>
   <body>
     <nav class="navbar">
       <ul>
-        <li><img src="ProjLogo.png" class="logo" /></li>
-        <li><a href="./homepage.html">Movies</a></li>
-        <li><a href="./shows.html">Shows</a></li>
-        <li><a href="./Mylist.html">MyList</a></li>
-        <li><a href="./MotW.html">Movie of the Week</a></li>
-        <li><a href="./Rating.html">Rating</a></li>
+        <li><img src="assets/images/ProjLogo.png" class="logo" /></li>
+        <li><a href="index.php">Movies</a></li>
+        <li><a href="shows.php">Shows</a></li>
+        <li><a href="Mylist.php">MyList</a></li>
+        <li><a href="MotW.php">Movie of the Week</a></li>
+        <li><a href="Rating.php">Rating</a></li>
         <div class="search">
           <input type="text" placeholder="Search.." />
-          <button type="submit" class="submitButton">icon</button>
+          <button type="submit" class="submitButton">🔍</button>
         </div>
       </ul>
     </nav>
