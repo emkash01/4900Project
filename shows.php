@@ -71,14 +71,14 @@ require 'database/config.php';
     if ($stmt->rowCount() > 0) {
 
         $shows = $stmt->fetchAll();
-        foreach ($shows as $shows) { ?>
+        foreach ($shows as $show) { ?>
             <div class="container">
                 <div>
-                    <a href="IndividualShow.php?shows_id=<?= $shows['id'] ?>">
-                        <img src="<?= $shows['pic'] ?>" alt="<?= $shows['title'] ?>"/>
+                    <a href="IndividualShow.php?shows_id=<?= $show['id'] ?>">
+                        <img src="<?= $show['pic'] ?>" alt="<?= $show['title'] ?>"/>
                     </a>
                     <div class="title-box"></div>
-                    <div class="name"><?= $shows['title'] ?></div>
+                    <div class="name"><?= $show['title'] ?></div>
                 </div>
             </div>
         <?php }
@@ -94,7 +94,7 @@ require 'database/config.php';
         <ion-icon name="caret-back-outline"></ion-icon>
     </button>
     <?php
-    $sql = "SELECT * FROM movie";
+    $sql = "SELECT * FROM shows";
     if(isset($_POST['search'])){
         $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
     }
@@ -105,14 +105,14 @@ require 'database/config.php';
     if ($stmt->rowCount() > 0) {
 
         $shows = $stmt->fetchAll();
-        foreach ($shows as $shows) { ?>
+        foreach ($shows as $show) { ?>
             <div class="container">
                 <div>
-                    <a href="IndividualShow.php?movie_id=<?= $shows['id'] ?>">
-                        <img src="<?= $shows['pic'] ?>" alt="<?= $shows['title'] ?>"/>
+                    <a href="IndividualShow.php?movie_id=<?= $show['id'] ?>">
+                        <img src="<?= $show['pic'] ?>" alt="<?= $show['title'] ?>"/>
                     </a>
                     <div class="title-box"></div>
-                    <div class="name"><?= $shows['title'] ?></div>
+                    <div class="name"><?= $show['title'] ?></div>
                 </div>
             </div>
         <?php }

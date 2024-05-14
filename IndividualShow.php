@@ -7,7 +7,7 @@ require 'database/config.php';
 if (!isset($_GET['shows_id']) && !isset($_POST['rate-btn'])) {
     echo '<script>window.location.href = "shows.php.php"</script>';
 }
-$movie_id = $_GET['movie_id'];
+$shows_id = $_GET['shows_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +72,7 @@ $movie_id = $_GET['movie_id'];
         </div>
         <div class="OfficailRating">
             <?php
-            $sql = "SELECT AVG(rating) as rating FROM shows_rating WHERE shows_id = $shows_id";
+            $sql = "SELECT AVG(rating) as rating FROM show_rating WHERE show_id = $shows_id";
             $stmt = $pdo->query($sql);
 
             $result = $stmt->fetch();

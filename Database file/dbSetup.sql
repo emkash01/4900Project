@@ -43,8 +43,8 @@ CREATE TABLE shows (
 
 create table show_rating(
     id SERIAL PRIMARY KEY,
-    user_id INTEGER,
-    show_id INTEGER,
+    user_id INTEGER REFERENCES users(id),
+    show_id INTEGER REFERENCES shows(id),
     rating DOUBLE PRECISION
 );
 
