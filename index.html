@@ -89,38 +89,32 @@ require 'database/config.php';
     <button class="goRight" onclick="plusDivs(1)">&rsaquo;</button>
 </div>
 <h2>Random Genre</h2>
-<div class="rowOneContent">
-    <button class="goLeft" onclick="plusDivs(-1)"><!--&lsaquo;-->
-        <ion-icon name="caret-back-outline"></ion-icon>
-    </button>
-    <?php
-    $sql = "SELECT * FROM movie";
-    if(isset($_POST['search'])){
-        $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
-    }
+<div class="rowOne">
+    <div class="rowOneContent">
+        <button class="goLeft2" onclick="plusDivs(-1)">&lsaquo;</button>
+        <?php
+        $sql = "SELECT * FROM movie";
+        if(isset($_POST['search'])){
+            $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
+        }
 
-    $stmt = $pdo->query($sql);
+        $stmt = $pdo->query($sql);
 
-    // Check if we have any movies
-    if ($stmt->rowCount() > 0) {
+        // Check if we have any movies
+        if ($stmt->rowCount() > 0) {
 
-        $movies = $stmt->fetchAll();
-        foreach ($movies as $movie) { ?>
-            <div class="container">
-                <div>
-                    <a href="IndividualMovie.php?movie_id=<?= $movie['id'] ?>">
-                        <img src="<?= $movie['pic'] ?>" alt="<?= $movie['title'] ?>"/>
-                    </a>
-                    <div class="title-box"></div>
-                    <div class="name"><?= $movie['title'] ?></div>
-                </div>
-            </div>
-        <?php }
-    } else {
-        echo '<p>No movies found</p>';
-    }
-    ?>
-    <button class="goRight" onclick="plusDivs(1)">&rsaquo;</button>
+            $movies = $stmt->fetchAll();
+            foreach ($movies as $movie) { ?>
+                <a href="IndividualMovie.php?movie_id=<?= $movie['id'] ?>">
+                    <img src="<?= $movie['pic'] ?>" alt="<?= $movie['title'] ?>" class="Image2" />
+                </a>
+            <?php }
+        } else {
+            echo '<p>No movies found</p>';
+        }
+        ?>
+        <button class="goRight2" onclick="plusDivs(1)">&rsaquo;</button>
+    </div>
 </div>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
