@@ -20,3 +20,4 @@ client.query(`Select * from movie`,(err, res) => {
     }
     client.end;
 })
+//------

@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TrailerFlix Movie of the week</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <!--link rel="icon" href="./favicon.ico" type="image/x-icon"-->
   </head>
   <body>
      
     <nav class = "navbar">
       <ul>
-        <li><img src = "ProjLogo.png" class = "logo"> </li>
-        <li><a href = "./homepage.html">Movies</a></li>
-        <li><a href = "./shows.html">Shows</a></li>
-        <li><a href = "./Mylist.html">MyList</a></li>
-        <li><a href = "./MotW.html">Movie of the Week</a></li>
-        <li><a href = "./Rating.html">Rating</a></li>
+        <li><img src = "assets/images/ProjLogo.png" class = "logo"> </li>
+        <li><a href = "index.php">Movies</a></li>
+        <li><a href = "shows.php">Shows</a></li>
+        <li><a href = "Mylist.php">MyList</a></li>
+        <li><a href = "MotW.php">Movie of the Week</a></li>
+        <li><a href = "Rating.php">Rating</a></li>
         <div class="search">
             <input type="text" placeholder="Search..">
             <button type="submit" class = "submitButton">icon</button>

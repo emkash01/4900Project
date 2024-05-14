@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale = 1.0" />
-    <link rel="stylesheet" href="loginsheet.css" />
+    <link rel="stylesheet" href="assets/css/loginsheet.css" />
     <!--Name of css file-->
     <title>Login</title>
   </head>
@@ -34,7 +34,7 @@
         <div class="login-register">
           <p>
             Dont have an account? Make one Here:
-            <a href="register.html" class="register-link">Register</a>
+            <a href="register.php" class="register-link">Register</a>
           </p>
         </div>
       </form>
@@ -120,9 +120,7 @@
      
     </script>
 
-    <script src>
-      "loginscript.js";
-    </script>
+    <script src="assets/js/loginscript.js"></script>
     <!--Name of jscript file-->
     <script
       type="module"
