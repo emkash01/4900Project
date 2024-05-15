@@ -77,7 +77,7 @@ require 'database/config.php';
                 foreach ($shows as $movie) { ?>
                     <div class="container">
                         <div>
-                            <a href="IndividualMovie.php?movie_id=<?= $movie['id'] ?>">
+                            <a href="IndividualShow.php?show_id=<?= $movie['id'] ?>">
                                 <img src="<?= $movie['pic'] ?>" alt="<?= $movie['title'] ?>"/>
                             </a>
                             <div class="title-box"></div>
