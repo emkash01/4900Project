@@ -1,33 +1,6 @@
 <?php
-header('Content-Type: application/json');
-
-// Database connection settings
-$host = 'localhost';
-$dbName = '4900proj';
-$user = 'postgres';
-$password = "Artur7799";
-$port = '5432';
-
-$dsn = "pgsql:host=$host;dbname=$db;charset=$charset";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
-
-try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-    throw new \PDOException($e->getMessage(), (int)$e->getCode());
-}
-
-// Fetch a random movie
-$stmt = $pdo->query("SELECT * FROM movie ORDER BY RANDOM() LIMIT 1");
-$movie = $stmt->fetch();
-
-echo json_encode($movie);
+    require 'helpers/authentication.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,12 +13,13 @@ echo json_encode($movie);
   <body>
     <nav class="navbar">
       <ul>
-        <li><img src="assets/images/ProjLogo.png" class="logo"></li>
-        <li><a href="index.php">Movies</a></li>
+      <li><img src="assets/images/ProjLogo.png" class="logo"></li>
+        <li><a href="movies.php">Movies</a></li>
         <li><a href="shows.php">Shows</a></li>
         <li><a href="Mylist.php">MyList</a></li>
         <li><a href="MotW.php">Movie of the Week</a></li>
-        <li><a href="Rating.php">Live Chat</a></li>
+        <li><a href="Rating.php">Rating</a></li>
+        <li><a href="helpers/logout.php">Logout</a></li>
         <div class="search">
           <input type="text" placeholder="Search..">
           <button type="submit" class="submitButton">icon</button>

@@ -1,3 +1,6 @@
+<?php
+require 'helpers/authentication.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,11 +15,12 @@
     <nav class="navbar">
       <ul>
         <li><img src="assets/images/ProjLogo.png" class="logo" /></li>
-        <li><a href="index.php">Movies</a></li>
+        <li><a href="movies.php">Movies</a></li>
         <li><a href="shows.php">Shows</a></li>
         <li><a href="Mylist.php">MyList</a></li>
         <li><a href="MotW.php">Movie of the Week</a></li>
-        <li><a href="Rating.php">Live Chat</a></li>
+        <li><a href="Rating.php">Rating</a></li>
+        <li><a href="helpers/logout.php">Logout</a></li>
         <div class="search">
           <input type="text" placeholder="Search.." />
           <button type="submit" class="submitButton">icon</button>
