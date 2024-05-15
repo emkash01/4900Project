@@ -60,7 +60,7 @@ require 'database/config.php';
         <ion-icon name="caret-back-outline"></ion-icon>
     </button>
     <?php
-    $sql = "SELECT * FROM movie";
+    $sql = "SELECT * FROM movie LIMIT 5";
     if(isset($_POST['search'])){
         $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
     }
@@ -68,8 +68,7 @@ require 'database/config.php';
     $stmt = $pdo->query($sql);
 
     // Check if we have any movies
-    if ($stmt->rowCount() > 0) {
-
+    if ($stmt->rowCount() > 0 && $stmt->rowCount() <=10 ) {
         $movies = $stmt->fetchAll();
         foreach ($movies as $movie) { ?>
             <div class="container">
@@ -94,7 +93,7 @@ require 'database/config.php';
         <ion-icon name="caret-back-outline"></ion-icon>
     </button>
     <?php
-    $sql = "SELECT * FROM movie";
+    $sql = "SELECT * FROM movie WHERE id > 5 LIMIT 5";
     if(isset($_POST['search'])){
         $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
     }
@@ -102,8 +101,7 @@ require 'database/config.php';
     $stmt = $pdo->query($sql);
 
     // Check if we have any movies
-    if ($stmt->rowCount() > 0) {
-
+    if ($stmt->rowCount() > 0 && $stmt->rowCount() <=10 ) {
         $movies = $stmt->fetchAll();
         foreach ($movies as $movie) { ?>
             <div class="container">
