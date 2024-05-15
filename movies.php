@@ -16,30 +16,6 @@ require 'database/config.php';
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<script>
-    var slideIndex = 1;
-    showDivs(slideIndex);
-
-    function plusDivs(n) {
-        showDivs(slideIndex += n);
-    }
-
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("Image");
-        if (n > x.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = x.length
-        }
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        x[slideIndex - 2].style.display = "block";
-        x[slideIndex - 1].style.display = "block";
-    }
-</script>
 <nav class="navbar">
     <ul>
     <li><img src="assets/images/ProjLogo.png" class="logo"></li>
@@ -58,11 +34,8 @@ require 'database/config.php';
 <h1>Movies</h1>
 <h2>Viewers are Loving These!</h2>
 <div class="rowOneContent">
-    <button class="goLeft" onclick="plusDivs(-1)"><!--&lsaquo;-->
-        <ion-icon name="caret-back-outline"></ion-icon>
-    </button>
     <?php
-    $sql = "SELECT * FROM movie";
+    $sql = "SELECT * FROM movie WHERE id > 0 AND id < 6";
     if(isset($_POST['search'])){
         $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
     }
@@ -88,21 +61,17 @@ require 'database/config.php';
         echo '<p>No movies found</p>';
     }
     ?>
-    <button class="goRight" onclick="plusDivs(1)">&rsaquo;</button>
 </div>
 <h2>Random Genre</h2>
 <div class="rowOneContent">
-    <button class="goLeft" onclick="plusDivs(-1)"><!--&lsaquo;-->
-        <ion-icon name="caret-back-outline"></ion-icon>
-    </button>
     <?php
-    $sql = "SELECT * FROM movie";
+    $sql = "SELECT * FROM movie WHERE id > 5 AND id < 11";
     if(isset($_POST['search'])){
         $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
     }
 
     $stmt = $pdo->query($sql);
-
+    
     // Check if we have any movies
     if ($stmt->rowCount() > 0) {
 
@@ -122,7 +91,36 @@ require 'database/config.php';
         echo '<p>No movies found</p>';
     }
     ?>
-    <button class="goRight" onclick="plusDivs(1)">&rsaquo;</button>
+</div>
+<h2>Fantasy Genre</h2>
+<div class="rowOneContent">
+    <?php
+    $sql = "SELECT * FROM movie WHERE id > 10 AND id < 16";
+    if(isset($_POST['search'])){
+        $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
+    }
+
+    $stmt = $pdo->query($sql);
+    
+    // Check if we have any movies
+    if ($stmt->rowCount() > 0) {
+
+        $movies = $stmt->fetchAll();
+        foreach ($movies as $movie) { ?>
+            <div class="container">
+                <div>
+                    <a href="IndividualMovie.php?movie_id=<?= $movie['id'] ?>">
+                        <img src="<?= $movie['pic'] ?>" alt="<?= $movie['title'] ?>"/>
+                    </a>
+                    <div class="title-box"></div>
+                    <div class="name"><?= $movie['title'] ?></div>
+                </div>
+            </div>
+        <?php }
+    } else {
+        echo '<p>No movies found</p>';
+    }
+    ?>
 </div>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

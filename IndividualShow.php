@@ -4,10 +4,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require 'database/config.php';
-if (!isset($_GET['shows_id']) && !isset($_POST['rate-btn'])) {
+if (!isset($_GET['show_id']) && !isset($_POST['rate-btn'])) {
     echo '<script>window.location.href = "shows.php.php"</script>';
 }
-$shows_id = $_GET['shows_id'];
+$shows_id = $_GET['show_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,12 +22,12 @@ $shows_id = $_GET['shows_id'];
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['rate-btn'])) {
         // Validate and sanitize inputs
-        $shows_id = $_POST['shows_id'];
+        $shows_id = $_POST['show_id'];
         $user_id = $_POST['user_id'];
         $rating = $_POST['rating'];
 
         try {
-            $sql = "INSERT INTO movie_rating (user_id, movie_id, rating) VALUES (:user_id, :movie_id, :rating)";
+            $sql = "INSERT INTO show_rating (user_id, show_id, rating) VALUES (:user_id, :show_id, :rating)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $stmt->bindParam(':movie_id', $movie_id, PDO::PARAM_INT);
@@ -81,7 +81,7 @@ $shows_id = $_GET['shows_id'];
         </div>
         <div class="OfficailRating">
             <?php
-            $sql = "SELECT rating, username FROM shows_rating inner join users u on u.id = shows_rating.user_id WHERE shows_id = $shows_id";
+            $sql = "SELECT rating, username FROM show_rating inner join users u on u.id = show_rating.user_id WHERE show_id = $shows_id";
             $stmt = $pdo->query($sql);
 
             $result = $stmt->fetchAll();
