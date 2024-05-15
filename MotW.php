@@ -18,7 +18,7 @@
         <li><a href="shows.php">Shows</a></li>
         <li><a href="Mylist.php">MyList</a></li>
         <li><a href="MotW.php">Movie of the Week</a></li>
-        <li><a href="Rating.php">Rating</a></li>
+        <li><a href="Rating.php">Live Chat</a></li>
         <li><a href="helpers/logout.php">Logout</a></li>
         <div class="search">
           <input type="text" placeholder="Search..">
