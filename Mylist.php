@@ -61,6 +61,35 @@ require 'database/config.php';
             }
             ?>
         </div>
+        <div class="rowOneContent">
+            <?php
+            $sql = "SELECT * FROM shows";
+            if(isset($_POST['search'])){
+                $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
+            }
+
+            $stmt = $pdo->query($sql);
+
+            // Check if we have any movies
+            if ($stmt->rowCount() > 0) {
+
+                $shows = $stmt->fetchAll();
+                foreach ($shows as $movie) { ?>
+                    <div class="container">
+                        <div>
+                            <a href="IndividualMovie.php?movie_id=<?= $movie['id'] ?>">
+                                <img src="<?= $movie['pic'] ?>" alt="<?= $movie['title'] ?>"/>
+                            </a>
+                            <div class="title-box"></div>
+                            <div class="name"><?= $movie['title'] ?></div>
+                        </div>
+                    </div>
+                <?php }
+            } else {
+                echo '<p>No movies found</p>';
+            }
+            ?>
+        </div>
     </main>
   </body>
 </html>
