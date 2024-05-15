@@ -1,5 +1,10 @@
-<<?php
-    require 'helpers/authentication.php';
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require 'helpers/authentication.php';
+require 'database/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en"
@@ -37,7 +42,7 @@
 </script>
 <nav class="navbar">
     <ul>
-    <li><img src = "assets/images/ProjLogo.png" class = "logo"> </li>
+    <li><img src="assets/images/ProjLogo.png" class="logo"></li>
         <li><a href="movies.php">Movies</a></li>
         <li><a href="shows.php">Shows</a></li>
         <li><a href="Mylist.php">MyList</a></li>
@@ -50,14 +55,14 @@
         </form>
     </ul>
 </nav>
-<h1>Shows</h1>
-<h2>Random Genre</h2>
+<h1>Movies</h1>
+<h2>Viewers are Loving These!</h2>
 <div class="rowOneContent">
     <button class="goLeft" onclick="plusDivs(-1)"><!--&lsaquo;-->
         <ion-icon name="caret-back-outline"></ion-icon>
     </button>
     <?php
-    $sql = "SELECT * FROM shows";
+    $sql = "SELECT * FROM movie";
     if(isset($_POST['search'])){
         $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
     }
@@ -67,15 +72,15 @@
     // Check if we have any movies
     if ($stmt->rowCount() > 0) {
 
-        $shows = $stmt->fetchAll();
-        foreach ($shows as $show) { ?>
+        $movies = $stmt->fetchAll();
+        foreach ($movies as $movie) { ?>
             <div class="container">
                 <div>
-                    <a href="IndividualShow.php?shows_id=<?= $show['id'] ?>">
-                        <img src="<?= $show['pic'] ?>" alt="<?= $show['title'] ?>"/>
+                    <a href="IndividualMovie.php?movie_id=<?= $movie['id'] ?>">
+                        <img src="<?= $movie['pic'] ?>" alt="<?= $movie['title'] ?>"/>
                     </a>
                     <div class="title-box"></div>
-                    <div class="name"><?= $show['title'] ?></div>
+                    <div class="name"><?= $movie['title'] ?></div>
                 </div>
             </div>
         <?php }
@@ -85,36 +90,36 @@
     ?>
     <button class="goRight" onclick="plusDivs(1)">&rsaquo;</button>
 </div>
-<h2>Anime</h2>
+<h2>Random Genre</h2>
 <div class="rowOneContent">
     <button class="goLeft" onclick="plusDivs(-1)"><!--&lsaquo;-->
         <ion-icon name="caret-back-outline"></ion-icon>
     </button>
     <?php
-    $sql = "SELECT * FROM shows";
+    $sql = "SELECT * FROM movie";
     if(isset($_POST['search'])){
         $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
     }
 
     $stmt = $pdo->query($sql);
 
-    // Check if we have any shows
+    // Check if we have any movies
     if ($stmt->rowCount() > 0) {
 
-        $shows = $stmt->fetchAll();
-        foreach ($shows as $show) { ?>
+        $movies = $stmt->fetchAll();
+        foreach ($movies as $movie) { ?>
             <div class="container">
                 <div>
-                    <a href="IndividualShow.php?movie_id=<?= $show['id'] ?>">
-                        <img src="<?= $show['pic'] ?>" alt="<?= $show['title'] ?>"/>
+                    <a href="IndividualMovie.php?movie_id=<?= $movie['id'] ?>">
+                        <img src="<?= $movie['pic'] ?>" alt="<?= $movie['title'] ?>"/>
                     </a>
                     <div class="title-box"></div>
-                    <div class="name"><?= $show['title'] ?></div>
+                    <div class="name"><?= $movie['title'] ?></div>
                 </div>
             </div>
         <?php }
     } else {
-        echo '<p>No shows found</p>';
+        echo '<p>No movies found</p>';
     }
     ?>
     <button class="goRight" onclick="plusDivs(1)">&rsaquo;</button>

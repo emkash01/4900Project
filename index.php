@@ -1,148 +1,125 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-require 'database/config.php';
+    require 'helpers/logged-in.php';
 ?>
 <!DOCTYPE html>
-<html lang="en"
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AE's Movie Connoisseur</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0"/>
+    <link rel="stylesheet" href="assets/css/loginsheet.css"/>
+    <!--Name of css file-->
+    <title>TrailerFlix</title>
 </head>
+
 <body>
-<!-- <script>
-    var slideIndex = 1;
-    showDivs(slideIndex);
+<header>
+    <hs class="logo">Logo</hs>
+    <nav class="navigation">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
 
-    function plusDivs(n) {
-        showDivs(slideIndex += n);
-    }
+        <a href="LoginMain.php">
 
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("Image");
-        if (n > x.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = x.length
-        }
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        x[slideIndex - 2].style.display = "block";
-        x[slideIndex - 1].style.display = "block";
-    }
-</script> -->
-<nav class="navbar">
-    <ul>
-        <li><img src="assets/images/ProjLogo.png" class="logo"></li>
-        <li><a href="index.php">Movies</a></li>
-        <li><a href="shows.php">Shows</a></li>
-        <li><a href="Mylist.php">MyList</a></li>
-        <li><a href="MotW.php">Movie of the Week</a></li>
-        <li><a href="Rating.php">Live Chat</a></li>
-        <form method="post" class="search">
-            <input type="text" name="search" value="<?= $_POST['search'] ?? '' ?>" class="searchBar" placeholder="Search..">
-            <button type="submit" class="submitButton">🔍</button>
-        </form>
-    </ul>
-</nav>
-<h1>Movies</h1>
-<h2>Action</h2>
-<div class="rowOneContent">
-    <?php
-    $sql = "SELECT * FROM movie WHERE id > 0 AND id < 6";
-    if(isset($_POST['search'])){
-        $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
-    }
+            <button class="btnLogin-popup">Log In</button>
+        </a>
+    </nav>
+</header>
 
-    $stmt = $pdo->query($sql);
 
-    // Check if we have any movies
-    if ($stmt->rowCount() > 0 && $stmt->rowCount() <=10 ) {
-        $movies = $stmt->fetchAll();
-        foreach ($movies as $movie) { ?>
-            <div class="container">
-                <div>
-                    <a href="IndividualMovie.php?movie_id=<?= $movie['id'] ?>">
-                        <img src="<?= $movie['pic'] ?>" alt="<?= $movie['title'] ?>"/>
-                    </a>
-                    <div class="title-box"></div>
-                    <div class="name"><?= $movie['title'] ?></div>
-                </div>
-            </div>
-        <?php }
-    } else {
-        echo '<p>No movies found</p>';
-    }
-    ?>
+<div class="wrapper">
+      <span class="icon-close">
+        <ion-icon name="close"></ion-icon>
+          <!-- does not work for "close-circle-sharp"-->
+      </span>
 </div>
-<h2>Random Genre</h2>
-<div class="rowOneContent">
-    <?php
-    $sql = "SELECT * FROM movie WHERE id > 5 AND id < 11";
-    if(isset($_POST['search'])){
-        $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
-    }
 
-    $stmt = $pdo->query($sql);
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const loginForm = document.querySelector(".form-box.login form");
 
-    // Check if we have any movies
-    if ($stmt->rowCount() > 0 && $stmt->rowCount() <=10 ) {
-        $movies = $stmt->fetchAll();
-        foreach ($movies as $movie) { ?>
-            <div class="container">
-                <div>
-                    <a href="IndividualMovie.php?movie_id=<?= $movie['id'] ?>">
-                        <img src="<?= $movie['pic'] ?>" alt="<?= $movie['title'] ?>"/>
-                    </a>
-                    <div class="title-box"></div>
-                    <div class="name"><?= $movie['title'] ?></div>
-                </div>
-            </div>
-        <?php }
-    } else {
-        echo '<p>No movies found</p>';
-    }
-    ?>
-</div>
-<h2>Random Genre</h2>
-<div class="rowOneContent">
-    <?php
-    $sql = "SELECT * FROM movie WHERE id > 10 AND id < 16";
-    if(isset($_POST['search'])){
-        $sql .= " WHERE title like '%" . $_POST['search'] . "%';";
-    }
+        loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault(); // Prevent the default form submission
 
-    $stmt = $pdo->query($sql);
+            const email = loginForm.querySelector('input[type="email"]').value;
+            const password = loginForm.querySelector(
+                'input[type="password"]'
+            ).value;
 
-    // Check if we have any movies
-    if ($stmt->rowCount() > 0 && $stmt->rowCount() <=10 ) {
-        $movies = $stmt->fetchAll();
-        foreach ($movies as $movie) { ?>
-            <div class="container">
-                <div>
-                    <a href="IndividualMovie.php?movie_id=<?= $movie['id'] ?>">
-                        <img src="<?= $movie['pic'] ?>" alt="<?= $movie['title'] ?>"/>
-                    </a>
-                    <div class="title-box"></div>
-                    <div class="name"><?= $movie['title'] ?></div>
-                </div>
-            </div>
-        <?php }
-    } else {
-        echo '<p>No movies found</p>';
-    }
-    ?>
-</div>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+            try {
+                const response = await fetch("http://localhost:3000/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({email, password}),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // If login is successful, show success message
+                    alert(data.message);
+                    localStorage.setItem("user", JSON.stringify(data.user));
+
+                    // Redirect to some other page after successful login
+                    window.location.href = "chat.html";
+                    console.log(data.user); // This will contain the user object returned from the server
+                } else {
+                    // If there's an error, show error message
+                    alert(data.error);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again later.");
+            }
+        });
+    });
+
+    document
+        .getElementById("register-form")
+        .addEventListener("submit", async function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                const response = await fetch("http://localhost:3000/signup", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({username, email, password}),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert("User signed up successfully");
+                    // Redirect to login page or perform other actions upon successful signup
+                } else {
+                    alert(data.error || "Error signing up");
+                }
+            } catch (error) {
+                console.error("Error signing up:", error);
+                alert("Internal server error");
+            }
+        });
+</script>
+
+<script src="assets/js/loginscript.js"></script>
+<!--Name of jscript file-->
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+></script>
+<!--Ionic Ions framework for icons and buttons-->
 </body>
 </html>
-
