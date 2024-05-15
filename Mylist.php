@@ -33,9 +33,6 @@ require 'database/config.php';
     <main>
         <h1>My List</h1>
         <div class="rowOneContent">
-            <button class="goLeft" onclick="plusDivs(-1)"><!--&lsaquo;-->
-                <ion-icon name="caret-back-outline"></ion-icon>
-            </button>
             <?php
             $sql = "SELECT * FROM movie";
             if(isset($_POST['search'])){
@@ -63,7 +60,6 @@ require 'database/config.php';
                 echo '<p>No movies found</p>';
             }
             ?>
-            <button class="goRight" onclick="plusDivs(1)">&rsaquo;</button>
         </div>
     </main>
   </body>
