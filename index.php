@@ -1,5 +1,5 @@
 <?php
-    require 'helpers/logged-in.php';
+require 'helpers/logged-in.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,80 +35,6 @@
       </span>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const loginForm = document.querySelector(".form-box.login form");
-
-        loginForm.addEventListener("submit", async (e) => {
-            e.preventDefault(); // Prevent the default form submission
-
-            const email = loginForm.querySelector('input[type="email"]').value;
-            const password = loginForm.querySelector(
-                'input[type="password"]'
-            ).value;
-
-            try {
-                const response = await fetch("http://localhost:3000/login", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({email, password}),
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    // If login is successful, show success message
-                    alert(data.message);
-                    localStorage.setItem("user", JSON.stringify(data.user));
-
-                    // Redirect to some other page after successful login
-                    window.location.href = "chat.html";
-                    console.log(data.user); // This will contain the user object returned from the server
-                } else {
-                    // If there's an error, show error message
-                    alert(data.error);
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                alert("An error occurred. Please try again later.");
-            }
-        });
-    });
-
-    document
-        .getElementById("register-form")
-        .addEventListener("submit", async function (event) {
-            event.preventDefault(); // Prevent default form submission
-
-            const username = document.getElementById("username").value;
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-
-            try {
-                const response = await fetch("http://localhost:3000/signup", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({username, email, password}),
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    alert("User signed up successfully");
-                    // Redirect to login page or perform other actions upon successful signup
-                } else {
-                    alert(data.error || "Error signing up");
-                }
-            } catch (error) {
-                console.error("Error signing up:", error);
-                alert("Internal server error");
-            }
-        });
-</script>
 
 <script src="assets/js/loginscript.js"></script>
 <!--Name of jscript file-->

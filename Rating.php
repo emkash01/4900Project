@@ -9,7 +9,7 @@ require 'helpers/authentication.php';
     <title>Chat</title>
     <link rel="stylesheet" href="assets/css/chat.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    
+
   </head>
   <body>
     <nav class="navbar">
@@ -19,7 +19,7 @@ require 'helpers/authentication.php';
         <li><a href="shows.php">Shows</a></li>
         <li><a href="Mylist.php">MyList</a></li>
         <li><a href="MotW.php">Movie of the Week</a></li>
-        <li><a href="Rating.php">Rating</a></li>
+        <li><a href="chat.php">Live Chat</a></li>
         <li><a href="helpers/logout.php">Logout</a></li>
         <div class="search">
           <input type="text" placeholder="Search.." />
@@ -49,7 +49,7 @@ require 'helpers/authentication.php';
       <div class="send-text"><img src="images/images.png" alt=""  style="width: 20px; height: 20px;" ></ion-icon></div>
     </div >
     <div style="width: 90%; height: 10px; background-color: black; margin: auto; margin-top: 50px; border-radius: 20px; ">
-      
+
     </div>
     <div class="cont-text">
 Contact us ,faq, etc.

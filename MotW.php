@@ -18,7 +18,7 @@
         <li><a href="shows.php">Shows</a></li>
         <li><a href="Mylist.php">MyList</a></li>
         <li><a href="MotW.php">Movie of the Week</a></li>
-        <li><a href="Rating.php">Live Chat</a></li>
+        <li><a href="chat.php">Live Chat</a></li>
         <li><a href="helpers/logout.php">Logout</a></li>
         <div class="search">
           <input type="text" placeholder="Search..">
@@ -27,13 +27,13 @@
       </ul>
     </nav>
     <main>
-      <div id="trailer-container">
+      <div style="display: flex; flex-direction: column; align-items: center;" id="trailer-container">
         <h2>Movie of the Week</h2>
         <iframe id="trailer" width="560" height="315" frameborder="0" allowfullscreen></iframe>
         <h3 id="movie-title"></h3>
         <p id="movie-synop"></p>
       </div>
     </main>
-    <script src="MotW.js"></script>
+    <script src="assets/js/MotW.js"></script>
   </body>
 </html>

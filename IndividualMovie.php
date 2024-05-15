@@ -1,8 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
+require 'helpers/authentication.php';
 require 'database/config.php';
 if (!isset($_GET['movie_id']) && !isset($_POST['rate-btn'])) {
     echo '<script>window.location.href = "Mylist.php.php"</script>';
@@ -64,9 +61,6 @@ $movie_id = $_GET['movie_id'];
         <div class="genre">
             <h1>Genre: <?= $movie['genra'] ?></h1>
         </div>
-        <div class="actor">
-            <h1>Actors: <?= $movie['actor']?></h1>
-        </div>
         <div class="sites">
             <h1>Sites: <?= $movie['sites'] ?></h1>
         </div>
@@ -102,7 +96,7 @@ $movie_id = $_GET['movie_id'];
             <h1>Personal Rating</h1>
             <form class="rating" method="post">
                 <input type="hidden" name="movie_id" value="<?= $movie_id ?>">
-                <input type="hidden" name="user_id" value="1">
+                <input type="hidden" name="user_id" value="<?= $_SESSION['user']['id'] ?>">
                 <select name="rating">
                     <option value="1">1</option>
                     <option value="2">2</option>

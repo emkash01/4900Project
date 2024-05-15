@@ -55,9 +55,7 @@
                 <img src="images/user2.png" alt="">
                 <div class="name">Artur Saidaliev</div>
 
-                <div class="about"> Artur is a passionate coder who is very persistant and is ready to achieve 
-                    whatever task is up. His skills are second to none and he knows how to get the job done.
-                </div>
+                <div class="about"> Description goes here</div>
                 <div class="social-links">
                     <a href="#"><i class="fa fa-facebook"></i></a>
                     <a href="#"><i class="fa fa-instagram"></i></a>
