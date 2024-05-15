@@ -1,4 +1,4 @@
-<<?php
+<?php
     require 'helpers/authentication.php';
     require 'database/config.php';
 ?>
@@ -27,7 +27,7 @@
     </ul>
 </nav>
 <h1>Shows</h1>
-<h2>Random Genre</h2>
+<h2>Anime</h2>
 <div class="rowOneContent">
     <?php
     $sql = "SELECT * FROM shows WHERE id > 0 AND id < 6";
@@ -57,7 +57,7 @@
     }
     ?>
 </div>
-<h2>Anime</h2>
+<h2>Random</h2>
 <div class="rowOneContent">
     <?php
     $sql = "SELECT * FROM shows WHERE id > 5 AND id < 11";
