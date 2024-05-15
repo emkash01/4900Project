@@ -1,10 +1,13 @@
 <?php
-require 'helpers/authentication.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require 'database/config.php';
-if (!isset($_GET['shows_id']) && !isset($_POST['rate-btn'])) {
-    echo '<script>window.location.href = "shows.php"</script>';
+if (!isset($_GET['show_id']) && !isset($_POST['rate-btn'])) {
+    echo '<script>window.location.href = "shows.php.php"</script>';
 }
-$shows_id = $_GET['shows_id'];
+$shows_id = $_GET['show_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +22,7 @@ $shows_id = $_GET['shows_id'];
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['rate-btn'])) {
         // Validate and sanitize inputs
-        $shows_id = $_POST['shows_id'];
+        $shows_id = $_POST['show_id'];
         $user_id = $_POST['user_id'];
         $rating = $_POST['rating'];
 
@@ -27,12 +30,12 @@ $shows_id = $_GET['shows_id'];
             $sql = "INSERT INTO show_rating (user_id, show_id, rating) VALUES (:user_id, :show_id, :rating)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-            $stmt->bindParam(':show_id', $shows_id, PDO::PARAM_INT);
+            $stmt->bindParam(':movie_id', $movie_id, PDO::PARAM_INT);
             $stmt->bindParam(':rating', $rating, PDO::PARAM_STR);
             $stmt->execute();
-            echo "<script>alert('Rating successfully added!');location.href='shows.php'</script>";
+            echo "<script>alert('Rating successfully added!');location.href='Mylist.php'</script>";
         } catch (PDOException $e) {
-            echo "<script>alert('An unknown error occurred while submitting rating! Please try again');location.href='shows.php'</script>";
+            echo "<script>alert('An unknown error occurred while submitting rating! Please try again');location.href='Mylist.php'</script>";
         }
     }
     ?>
@@ -96,7 +99,7 @@ $shows_id = $_GET['shows_id'];
             <h1>Personal Rating</h1>
             <form class="rating" method="post">
                 <input type="hidden" name="shows_id" value="<?= $shows_id ?>">
-                <input type="hidden" name="user_id" value="<?= $_SESSION['user']['id'] ?>">
+                <input type="hidden" name="user_id" value="1">
                 <select name="rating">
                     <option value="1">1</option>
                     <option value="2">2</option>
