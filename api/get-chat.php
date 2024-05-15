@@ -24,7 +24,7 @@ if(count($rows) > 0){
             $output .= '<li class="clearfix">
                             <div class="message-data align-right">
                                 <span class="message-data-time">'. date('h:i A, j M, Y', strtotime($row['created_at'])) .'</span> &nbsp; &nbsp;
-                                <span class="message-data-name">'. $row['display_name'] . '</span> <i class="fa fa-circle me"></i>
+                                <span class="message-data-name">'. $row['username'] . '</span> <i class="fa fa-circle me"></i>
                             </div>
                             <div class="message other-message float-right">
                                 '. $row['message'] . '
