@@ -1,16 +1,10 @@
-
-window.addEventListener('load', () => {
-    fetchRandomTrailer();
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('getRandomMovie.php')
+        .then(response => response.json())
+        .then(movie => {
+            document.getElementById('trailer').src = movie.trailer;
+            document.getElementById('movie-title').textContent = movie.title;
+            document.getElementById('movie-synop').textContent = movie.synop;
+        })
+        .catch(error => console.error('Error fetching movie:', error));
 });
-
-function fetchRandomTrailer() {
-    fetch('/trailer') // URL TO BACKEND ROUTE
-    .then(response => movies.json())
-    .then(data => {
-        // Display the trailer on the webpage
-        document.getElementById('trailer').src = data.trailer_url;
-    })
-    .catch(error => {
-        console.error('Error fetching random trailer:', error);
-    });
-}
