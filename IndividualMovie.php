@@ -64,6 +64,9 @@ $movie_id = $_GET['movie_id'];
         <div class="genre">
             <h1>Genre: <?= $movie['genra'] ?></h1>
         </div>
+        <div class="actor">
+            <h1>Actors: <?= $movie['actor']?></h1>
+        </div>
         <div class="sites">
             <h1>Sites: <?= $movie['sites'] ?></h1>
         </div>
